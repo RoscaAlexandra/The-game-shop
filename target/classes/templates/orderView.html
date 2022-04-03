@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>View Orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: crimson">Orders</h1>
+    <div class="col-md-4">
+        <a href="/home" type="button" class="btn btn-light" style="color: #820000; font-size: larger ;font-weight: bold">SZMETTY GAME STORE</a>
+        <h3 th:inline="text">[[${#httpServletRequest.remoteUser}]]'s shopping cart </h3>
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+
+            <th>Order</th>
+            <th>Date Place</th>
+            <th>Price </th>
+            <th colspan="2"></th>
+        </tr>
+        <tr th:each = "coamnda: ${comenzi}">
+            <td th:text="${coamnda.id}"></td>
+            <td th:text="${coamnda.orderDate}"> </td>
+            <td th:text="${coamnda.totalPrice}"> </td>
+            <td ><a th:href="@{|/comanda/gameOrder/${coamnda.id}/${#httpServletRequest.remoteUser}|}" class="btn btn-danger">Games Order</a></td>
+        </tr>
+
+    </table>
+
+
+
+    <div class="row" th:fragment="pagination">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <nav aria-label="Pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" th:each="pageNumber : ${pageNumbers}" >
+
+                        <a class="page-link" th:href="@{|/comanda/comenziList/page/${pageNumber}/${#httpServletRequest.remoteUser}|}" th:text="${pageNumber}"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+</body>
+</html>

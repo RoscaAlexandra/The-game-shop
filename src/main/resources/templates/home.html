@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Szmetty Game Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body th:style="|
+  background: url(/images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;|">
+<div class="container">
+    <h1 style="color: blanchedalmond">Welcome to Szmetty Games Store</h1>
+    <a href="/login" type="button" class="btn btn-success">Login</a>
+    <a  href="/signup" type="button" class="btn btn-info">SignUP</a>
+    <a href="/game/gameList/page/1" type="button" class="btn btn-info">Games</a>
+    <a href="/developer/developerList/page/1" type="button" class="btn btn-info">Developer</a>
+    <a href="/categories/categoryList/page/1" type="button" class="btn btn-info">Categories</a>
+    <a sec:authorize = "isAuthenticated()" href="/shoppingCart/shoppingCartList/page/1" type="button" class="btn btn-info">shoppingCart</a>
+
+
+
+
+
+    <a sec:authorize = "isAuthenticated()" th:href="@{|/comanda/comenziList/page/1/${#httpServletRequest.remoteUser}|}" type="button" class="btn btn-info">My Orders</a>
+
+
+
+</div>
+</body>
+</html>

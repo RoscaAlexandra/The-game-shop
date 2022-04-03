@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="../static/css/order.css" th:href="@{/css/order.css}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script href="/js/order.js" th:src="@{/js/order.js}"></script>
+</head>
+<body th:inline="javascript">
+
+<div class="container">
+    <div class="col-md-4">
+        <h3 th:inline="text">[[${#httpServletRequest.remoteUser}]]'s Order </h3>
+    </div>
+</div>
+<div class="congrats">
+    <h1 th:onclick="reset(), animateText(), animateBlobs()">Congratulations!</h1>
+    <h2 style="padding-top: 12%"> Your order has been placed !</h2>
+    <h3> You will receive a confirmation email with details of your order.</h3>
+</div>
+<img src="https://bit.ly/20qKWK0" style="display:none">
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>View ShoppingCart</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: crimson">ShoppingCart</h1>
+    <div class="col-md-4">
+        <a href="/home" type="button" class="btn btn-light" style="color: #820000; font-size: larger ;font-weight: bold">SZMETTY GAME STORE</a>
+        <h3 th:inline="text">[[${#httpServletRequest.remoteUser}]]'s shopping cart </h3>
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+
+            <th>Name</th>
+
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th colspan="2"></th>
+        </tr>
+        <tr th:each = "shoppingCart: ${shoppingCarts}">
+            <td th:text="${shoppingCart.game.gameInfo.name}"></td>
+
+            <td th:text="${shoppingCart.quantity}"> </td>
+            <td th:text="${shoppingCart.game.price}"> </td>
+
+
+
+            <td ><a th:href="@{|/shoppingCart/delete/${shoppingCart.game.id}|}" class="btn btn-danger">Delete</a></td>
+        </tr>
+
+    </table>
+
+
+
+    <div class="row" th:fragment="pagination">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <nav aria-label="Pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" th:each="pageNumber : ${pageNumbers}" >
+                        <a class="page-link" th:href="@{|/shoppingCart/shoppingCartList/page/${pageNumber}|}" th:text="${pageNumber}"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <a th:href="@{|/shoppingCart/order/${#httpServletRequest.remoteUser}}" type="button" class="btn btn-success" >Place order</a>
+    <a  th:inline="text" style="padding-left: 20px; color: #1e90ff; font-family: 'Britannic Bold'; font-size: large"> Total Price: [[${totalPrice}]]</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Info</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+                    <div class = "row">
+                        <div class="col-md-6"> <img th:src="@{|/gameImage/getimage/${game.id}|}" width="200" height="200"> </div>
+                    </div>
+
+                    <div class="panel-heading" style="background-color:lightgray;">
+                        <h1 class="panel-title" th:text="${game.gameInfo.name}">Game </h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Category:</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li th:each="category:${game.gameCategory}"th:text="${category.getName()}">
+                                        Category
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5>Developers:</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul>
+                                            <li th:each="developer:${game.developers}"th:text="${developer.getName()}">
+                                                Developers
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Game Price:</h5>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <ul>
+                                    <p th:text="${game.price}">
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Description: </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <p th:text="${game.gameInfo != null ? game.gameInfo.description:''}">
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <td sec:authorize = "isAuthenticated()"><a th:href="@{|/shoppingCart/add/${game.id}|}" class="btn btn-success">Add To Shopping Cart</a></td>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
