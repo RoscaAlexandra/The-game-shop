@@ -1,5 +1,6 @@
 package com.proiecte.GamesStore.config.security;
 
+import com.proiecte.GamesStore.services.UserDetailServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
