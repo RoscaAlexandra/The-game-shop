@@ -98,7 +98,7 @@ public class CategoryController {
 
             }
             else {
-                bindingResult.rejectValue("name","err.name", "Developer already exist");
+                bindingResult.rejectValue("name","err.name", "Category already exist");
                 return "addCategory";
             }
         }

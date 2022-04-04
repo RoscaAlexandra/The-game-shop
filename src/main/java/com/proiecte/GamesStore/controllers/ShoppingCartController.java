@@ -89,7 +89,7 @@ public class ShoppingCartController {
             quantity = shoppingCart.getQuantity();
             totalPrice += price * quantity;
         }
-        //model.addAttribute("totalPrice", totalPrice);
+
         String formattedTotalPrice = String.format("%.02f", totalPrice);
         return formattedTotalPrice;
     }
