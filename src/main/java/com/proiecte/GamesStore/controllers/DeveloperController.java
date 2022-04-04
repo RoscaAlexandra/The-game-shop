@@ -79,7 +79,6 @@ public class DeveloperController {
     }
 
 
-    //Save an author
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping (value="/save/test", method=RequestMethod.POST)
     public String saveDeveloper(Developer developer){
@@ -110,7 +109,7 @@ public class DeveloperController {
             List<Integer> pageNumbers = IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
-        //model.addAttribute("activeGameList", true);
+
         model.addAttribute("games", gamePage.getContent());
         return "gameList";
     }
