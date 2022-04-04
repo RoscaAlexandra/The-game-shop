@@ -1,6 +1,7 @@
 package com.proiecte.GamesStore.services;
 
 import com.proiecte.GamesStore.domain.Developer;
+import com.proiecte.GamesStore.repositories.DeveloperRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

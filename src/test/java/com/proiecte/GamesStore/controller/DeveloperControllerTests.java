@@ -1,5 +1,6 @@
 package com.proiecte.GamesStore.controller;
 
+import com.proiecte.GamesStore.controllers.DeveloperController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

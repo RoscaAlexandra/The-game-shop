@@ -5,7 +5,7 @@ import com.proiecte.GamesStore.domain.Developer;
 import com.proiecte.GamesStore.domain.Game;
 import com.proiecte.GamesStore.domain.GameInfo;
 import com.proiecte.GamesStore.dto.ResultDTO;
-import com.proiecte.GamesStore.repositories.CategoryRepository;
+import com.proiecte.GamesStore.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

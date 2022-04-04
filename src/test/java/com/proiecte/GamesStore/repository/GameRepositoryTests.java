@@ -4,6 +4,7 @@ import com.proiecte.GamesStore.domain.Category;
 import com.proiecte.GamesStore.domain.Developer;
 import com.proiecte.GamesStore.domain.Game;
 import com.proiecte.GamesStore.domain.GameInfo;
+import com.proiecte.GamesStore.repositories.GameRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
